@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E3348;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.demo1.WrldController">
+    <children>
+        <AnchorPane layoutX="-4.0" layoutY="130.0" prefHeight="271.0" prefWidth="606.0" style="-fx-background-color: fafafa;">
+            <children>
+                <Label layoutX="221.0" layoutY="14.0" prefHeight="107.0" prefWidth="195.0" text="Hello World!" textFill="#514848">
+                    <font>
+                        <Font name="Optima Regular" size="24.0" />
+                    </font>
+                </Label>
+            <ImageView fx:id="imageBut" fitHeight="144.0" fitWidth="150.0" layoutX="221.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../java/com/example/demo1/assets/wrld.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+        <Label layoutX="184.0" layoutY="38.0" prefHeight="74.0" prefWidth="231.0" text="CryBaby Saint" textFill="WHITE">
+            <font>
+                <Font name="Optima Regular" size="36.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

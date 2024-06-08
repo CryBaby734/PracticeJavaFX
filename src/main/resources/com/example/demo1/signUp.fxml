@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.SignUpController">
+    <children>
+        <AnchorPane layoutX="-4.0" layoutY="130.0" prefHeight="271.0" prefWidth="606.0" style="-fx-background-color: fafafa;">
+            <children>
+                <TextField fx:id="lastname" layoutX="27.0" layoutY="84.0" prefHeight="26.0" prefWidth="225.0" promptText="Last Name" />
+                <PasswordField fx:id="pass_sign" layoutX="353.0" layoutY="34.0" prefHeight="26.0" prefWidth="225.0" promptText="password" />
+                <Button fx:id="SignUpButton" layoutX="246.0" layoutY="203.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color: #F39C63;" text="Sign Up" textFill="#f0f0f0">
+                    <font>
+                        <Font name="Songti SC Regular" size="18.0" />
+                    </font>
+                </Button>
+            <PasswordField fx:id="rpass_sign" layoutX="353.0" layoutY="84.0" prefHeight="26.0" prefWidth="225.0" promptText="Repeat password" />
+            <TextField fx:id="FirstName" layoutX="27.0" layoutY="34.0" prefHeight="26.0" prefWidth="225.0" promptText="First name" />
+            <CheckBox fx:id="signMale" layoutX="383.0" layoutY="140.0" mnemonicParsing="false" text="Male" />
+            <CheckBox fx:id="signFemale" layoutX="475.0" layoutY="140.0" mnemonicParsing="false" text="Female" />
+            <TextField fx:id="contact" layoutX="27.0" layoutY="136.0" prefHeight="26.0" prefWidth="225.0" promptText="Contact Info" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="184.0" layoutY="38.0" prefHeight="74.0" prefWidth="231.0" text="CryBaby Saint" textFill="WHITE">
+            <font>
+                <Font name="Optima Regular" size="36.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
