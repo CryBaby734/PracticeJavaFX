@@ -13,6 +13,10 @@ public class User {
         this.contactInfo = contactInfo;
     }
 
+    public User() {
+
+    }
+
     public String getFirstname() {
         return firstname;
     }

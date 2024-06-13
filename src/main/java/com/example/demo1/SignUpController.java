@@ -35,7 +35,7 @@ public class SignUpController {
     @FXML
     private CheckBox signMale;
 
-
+    @FXML
      void initialize() {
          DatabaseHandler dbHandler = new DatabaseHandler();
          SignUpButton.setOnAction(event -> {
@@ -64,5 +64,6 @@ public class SignUpController {
         User user = new User(firstName,lastName,pass,contactNo);
 
         dbHandler.signUpUser(user);
+        System.out.println("Sign Up Success");
     }
 }

@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXMLLoader;
@@ -39,9 +41,9 @@ public class Controller {
         SignInButton.setOnAction(event -> {
             String login = login_field.getText().trim();
             String loginPass = pass_field.getText().trim();
-            if (login.isEmpty() || loginPass.isEmpty())
-                loginUser(login,loginPass);
-            else
+            if(!login.isEmpty() && !loginPass.isEmpty()) {
+                loginUser(login, loginPass);
+           } else
                 System.out.println("Login or Password is empty!");
         });
 
@@ -54,7 +56,7 @@ public class Controller {
             try {
                 Parent root = fxmlLoader.load();
                 SignUpController signUpController = fxmlLoader.getController(); // Получаем контроллер
-                //signUpController.initData(/* Если нужно передать какие-либо данные, инициализируйте здесь */);
+                //signUpController.initData(/);
                 Stage signUpStage = new Stage();
                 signUpStage.setScene(new Scene(root));
                 signUpStage.show();
@@ -65,5 +67,30 @@ public class Controller {
     }
 
     private void loginUser(String login, String loginPass) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        boolean isAuthenticated = databaseHandler.authenticateUser(login, loginPass);
+
+        if (isAuthenticated) {
+            System.out.println("Successfully logged in!");
+            try {
+                // Загружаем FXML для списка задач
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/taskListView.fxml"));
+                Parent root = loader.load();
+
+                // Получаем контроллер списка задач и устанавливаем userId
+                TaskListController taskListController = loader.getController();
+                int userId = databaseHandler.getUserIdByUsername(login);
+                taskListController.setUserId(userId);
+
+                // Переходим на сцену со списком задач
+                Stage stage = (Stage) SignInButton.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Login failed!");
+        }
     }
 }
