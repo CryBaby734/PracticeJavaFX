@@ -142,7 +142,7 @@ public class DatabaseHandler{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return -1; // Возвращайте -1 или другое значение, если пользователь не найден
+        return -1;
     }
 
 

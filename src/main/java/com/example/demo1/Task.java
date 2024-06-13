@@ -30,7 +30,6 @@ public class Task {
         this.status = status;
     }
 
-    // Getters and Setters
 
     public int getId() {
         return id;

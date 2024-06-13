@@ -55,7 +55,7 @@ public class Controller {
 
             try {
                 Parent root = fxmlLoader.load();
-                SignUpController signUpController = fxmlLoader.getController(); // Получаем контроллер
+                SignUpController signUpController = fxmlLoader.getController();
                 //signUpController.initData(/);
                 Stage signUpStage = new Stage();
                 signUpStage.setScene(new Scene(root));
@@ -73,16 +73,16 @@ public class Controller {
         if (isAuthenticated) {
             System.out.println("Successfully logged in!");
             try {
-                // Загружаем FXML для списка задач
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/taskListView.fxml"));
                 Parent root = loader.load();
 
-                // Получаем контроллер списка задач и устанавливаем userId
+
                 TaskListController taskListController = loader.getController();
                 int userId = databaseHandler.getUserIdByUsername(login);
                 taskListController.setUserId(userId);
 
-                // Переходим на сцену со списком задач
+
                 Stage stage = (Stage) SignInButton.getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();
