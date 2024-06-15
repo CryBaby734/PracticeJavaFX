@@ -2,17 +2,25 @@ package com.example.demo1;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Date;
 
 public class TaskListController {
 
     @FXML
     private TableView<Task> taskTable;
+
+    @FXML
+    private Button add_form;
 
     @FXML
     private TableColumn<Task, String> titleColumn;
@@ -73,11 +81,30 @@ public class TaskListController {
                 loadTasks();
             }
         });
+
+        add_form.setOnAction(event -> OpenTaskForm());
     }
 
-    private void loadTasks() {
+    protected void loadTasks() {
         ObservableList<Task> tasks = databaseHandler.getTasks(userId);
         taskTable.setItems(tasks);
+    }
+
+    private void OpenTaskForm() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo1/taskFormView.fxml"));
+            Parent root = fxmlLoader.load();
+
+            TaskController taskController = fxmlLoader.getController();
+            taskController.setTaskListController(this);
+            taskController.setUserId(userId);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setUserId(int userId) {

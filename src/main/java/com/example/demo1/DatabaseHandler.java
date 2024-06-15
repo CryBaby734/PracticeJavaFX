@@ -44,6 +44,9 @@ public class DatabaseHandler{
                e.printStackTrace();
            }
        }
+
+      // public void addForm()
+
        public void updateTask(Task task) {
            String query = "UPDATE tasks SET title = ?, description = ?, due_date = ?, priority = ?, status = ? WHERE task_id = ?";
           try(Connection connection = Configs.getConnection();
